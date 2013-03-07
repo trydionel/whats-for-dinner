@@ -1,0 +1,18 @@
+<div ng-controller="RecipesCtrl">
+  <div ng-repeat="recipe in recipes | startFrom: offset | limitTo: perPage">
+    <h4 class="subheader">{{ recipe.name }}</h4>
+    <p>{{ recipe.description }}</p>
+    <hr ng-hide="$last">
+  </div>
+  <ul class="pagination">
+    <li class="arrow" ng-class="{unavailable: !hasPrevPage()}">
+      <a href="" ng-click="prevPage()">&laquo;</a>
+    </li>
+    <li ng-repeat="page in pages()" ng-class="{current: isCurrent(page)}">
+      <a href="" ng-click="paginate(page)">{{ page + 1 }}</a>
+    </li>
+    <li class="arrow" ng-class="{unavailable: !hasNextPage()}">
+      <a href="" ng-click="nextPage()">&raquo;</a>
+    </li>
+  </ul>
+</div>

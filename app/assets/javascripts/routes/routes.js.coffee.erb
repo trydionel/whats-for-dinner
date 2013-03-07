@@ -1,0 +1,8 @@
+App.config ($routeProvider, $locationProvider) ->
+  $routeProvider
+    .when('/recipes', templateUrl: '<%= path_to_asset "templates/recipes.html" %>')
+    .when('/new', templateUrl: '<%= path_to_asset "templates/add_recipe.html" %>')
+    .when('/choose', templateUrl: '<%= path_to_asset "templates/choose.html" %>')
+    .otherwise(redirectTo: '/choose')
+
+  $locationProvider.html5Mode(true)

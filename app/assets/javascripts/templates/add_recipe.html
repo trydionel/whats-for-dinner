@@ -1,0 +1,27 @@
+<form novalidate name="form" ng-controller="AddRecipeCtrl" ng-submit="submit()">
+  <div class="alert-box success" ng-show="lastRecipe">
+    Added {{ lastRecipe.name }} to your list!
+    <a href="" class="close" ng-click="hideAlert()">&times;</a>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <label for="name">Recipe name</label>
+      <input type="text" id="name" ng-model="recipe.name" placeholder="Ham" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <label for="description">Recipe description</label>
+      <textarea id="description" ng-model="recipe.description" placeholder="Ham with ham sauce"></textarea>
+    </div>
+  </div>
+  <div class="row collapse">
+    <label for="staple" class="inline">
+      <input type="checkbox" id="staple" ng-model="recipe.staple">
+      This recipe is a weekly staple
+    </label>
+  </div>
+  <div class="row collapse">
+    <input type="submit" id="submit" class="expand radius button" value="Save" ng-disabled="form.$invalid">
+  </div>
+</form>

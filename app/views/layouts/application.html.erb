@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="WhatsForDinner">
+<head>
+  <title>WhatsForDinner</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container" class="container">
+    <div class="row">
+      <div class="small-6 small-centered columns">
+        <h1 class="subheader">What's for dinner</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-3 columns">
+        <ul class="side-nav">
+          <li><a href="/choose" nav-link>Choose</a></li>
+          <li><a href="/recipes" nav-link>View all recipes</a></li>
+          <li><a href="/new" nav-link>Add new recipe</a></li>
+        </ul>
+      </div>
+      <div class="small-6 columns pull-3">
+        <div ng-view></div>
+      </div>
+    </div>
+    <div id="container-footer"></div>
+  </div>
+
+  <div id="footer">
+    <div class="small-12" style="text-align: center;">
+      <small>
+        Created by
+        Jeff Tucker (<a href="http://trydionel.com" target="_blank">@trydionel</a>)
+        using
+        <a href="http://angularjs.org" target="_blank">Angular.js</a>
+        and
+        <a href="http://foundation.zurb.com/" target="_blank">ZURB Foundation</a>
+        for his beautiful wife
+        Alayna (<a href="http://thymebombe.com" target="_blank">@thymebombe</a>)
+        <3
+      </small>
+    </div>
+  </div>
+</body>
+</html>

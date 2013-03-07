@@ -1,0 +1,4 @@
+@import "foundation";
+@import "compass/layout/sticky-footer";
+
+@include sticky-footer(30px, '#container', '#container-footer');

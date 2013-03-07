@@ -1,0 +1,9 @@
+<div ng-controller="ChooseCtrl" class="panel">
+  <div ng-repeat="choice in choices">
+    <p>
+      <span class="radius label">{{ choice.day }}</span>
+      {{ choice.name }}
+    </p>
+  </div>
+  <a ng-click="reload()" class="expand radius button">Choose again</a>
+</div>
