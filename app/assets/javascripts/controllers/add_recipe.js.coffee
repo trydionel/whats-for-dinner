@@ -1,4 +1,4 @@
-App.controller 'AddRecipeCtrl', ($scope, Recipe) ->
+App.controller 'AddRecipeCtrl', ['$scope', 'Recipe', ($scope, Recipe) ->
 
   $scope.submit = ->
     Recipe.save($scope.recipe).success ->
@@ -7,3 +7,4 @@ App.controller 'AddRecipeCtrl', ($scope, Recipe) ->
 
   $scope.hideAlert = ->
     $scope.lastRecipe = null
+]

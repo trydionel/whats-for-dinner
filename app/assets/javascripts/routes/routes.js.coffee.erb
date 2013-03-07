@@ -1,4 +1,4 @@
-App.config ($routeProvider, $locationProvider) ->
+App.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
   $routeProvider
     .when('/recipes', templateUrl: '<%= path_to_asset "templates/recipes.html" %>')
     .when('/new', templateUrl: '<%= path_to_asset "templates/add_recipe.html" %>')
@@ -6,3 +6,4 @@ App.config ($routeProvider, $locationProvider) ->
     .otherwise(redirectTo: '/choose')
 
   $locationProvider.html5Mode(true)
+]

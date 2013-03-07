@@ -1,4 +1,4 @@
-App.controller 'RecipesCtrl', ($scope, Recipe) ->
+App.controller 'RecipesCtrl', ['$scope', 'Recipe', ($scope, Recipe) ->
   $scope.offset = 0
   $scope.perPage = 5
   $scope.recipes = Recipe.all()
@@ -26,3 +26,4 @@ App.controller 'RecipesCtrl', ($scope, Recipe) ->
 
   $scope.isCurrent = (page) ->
     page * $scope.perPage == $scope.offset
+]

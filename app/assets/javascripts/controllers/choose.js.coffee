@@ -1,4 +1,4 @@
-App.controller 'ChooseCtrl', ($scope, $q, Recipe) ->
+App.controller 'ChooseCtrl', ['$scope', '$q', 'Recipe', ($scope, $q, Recipe) ->
   $scope.days = [
     'Monday',
     'Tuesday',
@@ -58,3 +58,4 @@ App.controller 'ChooseCtrl', ($scope, $q, Recipe) ->
           pick $scope.recipes
       else
         throw "Unknown day: #{day}"
+]

@@ -1,4 +1,4 @@
-App.factory 'Recipe', ($q, $http) ->
+App.factory 'Recipe', ['$q', '$http', ($q, $http) ->
   promise = $http.get('/recipes')
 
   {
@@ -33,3 +33,4 @@ App.factory 'Recipe', ($q, $http) ->
       result.success => this.reload()
       result
   }
+]
