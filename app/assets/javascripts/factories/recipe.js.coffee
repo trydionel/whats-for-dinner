@@ -1,8 +1,5 @@
 App.factory 'Recipe', ['$q', '$http', ($q, $http) ->
   promise = $http.get('/recipes')
-  copy = (src, dst) ->
-    dst.push(item) for item in src
-    null
 
   {
     reload: ->
@@ -11,7 +8,7 @@ App.factory 'Recipe', ['$q', '$http', ($q, $http) ->
     all: ->
       results = []
       results.promise = promise.success (recipes) ->
-        copy(recipes, results)
+        angular.copy(recipes, results)
 
       results
 
@@ -28,7 +25,7 @@ App.factory 'Recipe', ['$q', '$http', ($q, $http) ->
           indices.push(i) unless indices.indexOf(i) >= 0
 
         selection = (candidates[index] for index in indices)
-        copy selection, results
+        angular.copy(selection, results)
 
       results
 
