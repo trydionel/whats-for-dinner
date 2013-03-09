@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   respond_to :json
-  wrap_parameters :recipe, include: [:name, :description]
+  wrap_parameters :recipe, include: [:name, :description, :staple]
 
   def index
     respond_with Recipe.all
