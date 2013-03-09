@@ -1,5 +1,8 @@
 App.factory 'Recipe', ['$q', '$http', ($q, $http) ->
   promise = $http.get('/recipes')
+  copy = (src, dst) ->
+    dst.push(item) for item in src
+    null
 
   {
     reload: ->
@@ -8,7 +11,7 @@ App.factory 'Recipe', ['$q', '$http', ($q, $http) ->
     all: ->
       results = []
       results.promise = promise.success (recipes) ->
-        results.push(recipe) for recipe in recipes
+        copy(recipes, results)
 
       results
 
@@ -16,15 +19,16 @@ App.factory 'Recipe', ['$q', '$http', ($q, $http) ->
       results = []
       results.promise = promise.success (recipes) ->
         candidates = recipes.filter(fn)
-        length = candidates.length
-        return [] if length == 0
+        total = candidates.length
 
         indices = []
-        until indices.length == n
-          i = Math.floor(Math.random() * length)
+        N = Math.min(n, total)
+        until indices.length == N
+          i = Math.floor(Math.random() * total)
           indices.push(i) unless indices.indexOf(i) >= 0
 
-        results.push(candidates[index]) for index in indices
+        selection = (candidates[index] for index in indices)
+        copy selection, results
 
       results
 
