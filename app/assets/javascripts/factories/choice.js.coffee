@@ -31,7 +31,7 @@ App.factory 'Choice', ['$q', 'Recipe', ($q, Recipe) ->
   {
     choose: (days) ->
       results = []
-      recipes = Recipe.sample(5)
+      recipes = Recipe.sample 5, (recipe) -> !recipe.staple
       staples = Recipe.sample 2, (recipe) -> recipe.staple
 
       $q.all([recipes.promise, staples.promise]).then ->
