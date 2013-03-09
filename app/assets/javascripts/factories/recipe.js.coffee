@@ -36,5 +36,10 @@ App.factory 'Recipe', ['$q', '$http', ($q, $http) ->
       result = $http.post('/recipes', recipe)
       result.success => this.reload()
       result
+
+    destroy: (recipe) ->
+      result = $http.delete("/recipes/#{recipe.id}")
+      result.success => this.reload()
+      result
   }
 ]

@@ -3,6 +3,10 @@ App.controller 'RecipesCtrl', ['$scope', 'Recipe', ($scope, Recipe) ->
   $scope.perPage = 5
   $scope.recipes = Recipe.all()
 
+  $scope.destroy = (recipe) ->
+    Recipe.destroy(recipe).then ->
+      $scope.recipes = Recipe.all()
+
   $scope.paginate = (page) ->
     $scope.offset = page * $scope.perPage
 

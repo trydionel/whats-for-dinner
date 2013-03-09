@@ -1,6 +1,7 @@
 <div ng-controller="RecipesCtrl">
   <div ng-repeat="recipe in recipes | startFrom: offset | limitTo: perPage">
-    <h4 class="subheader">{{ recipe.name }}</h4>
+    <a href="" class="right close" ng-click="destroy(recipe)" title="Delete">&times;</a>
+    <h4 class="subheader">{{ recipe.name }} <small ng-show="recipe.staple">Staple</small></h4>
     <p>{{ recipe.description }}</p>
     <hr ng-hide="$last">
   </div>
